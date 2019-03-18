@@ -23,15 +23,30 @@ public class Libretto {
 	 * seleziona il sottoinsieme di voti che hanno il punteggio specificato
 	 * 
 	 * @param punti
-	 * @return lista di{@link Voto} aventi quel punteggio
+	 * @return lista di{@link Voto} aventi quel punteggio (eventualmente vuota)
 	 */
 	public List<Voto> CercaVoti(int punti){
 		List<Voto> result = new ArrayList<Voto>();
 		
-		for(Voto v: voti) {
+		for(Voto v: this.voti) {
 			if(v.getPunti()==punti)
 				result.add(v);
 		}
 		return result;
 	}
+	
+	/**
+	 * ricerca un voto relativo al corso di cui è specificato il nome
+	 * 
+	 * @param nomeEsame nome del corso
+	 * @return il {@link Voto} corrispondente, oppure {@code null} se non esistente
+	 */
+	public Voto cercaEsame(String nomeEsame) {
+		for(Voto v: this.voti) {
+			if(v.getCorso().equals(nomeEsame))
+				return v;
+		}
+		return null;
+	}
+	
 }
