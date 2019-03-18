@@ -3,6 +3,8 @@ import java.time.*;
 
 public class Voto {
 	
+	
+
 	private int voto;
 	private String corso;
 	private LocalDate data;
@@ -38,8 +40,10 @@ public class Voto {
 		this.data = data;
 	}
 	
-	
-	
+	@Override
+	public String toString() {
+		return String.format("Voto [voto=%s, corso=%s, data=%s]", voto, corso, data);
+	}
 	
 
 }
